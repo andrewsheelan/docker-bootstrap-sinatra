@@ -11,7 +11,8 @@ gem 'sinatra-contrib'
 gem 'activerecord'
 gem 'pg'
 
-# Supporting Data and Response
+# Supporting Server, API, Data and Response
 gem 'json'
 gem 'puma'
+gem 'puma-metrics'
 gem 'rake'

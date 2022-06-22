@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'sinatra'
+require 'rake'
 require 'sinatra/activerecord'
 require 'sinatra/activerecord/rake'
 require 'sinatra/reloader' if development?

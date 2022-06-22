@@ -17,13 +17,11 @@ wget -O /tmp/z.$$ https://github.com/andrewsheelan/docker-bootstrap-sinatra/arch
 
 # Rename this folder if needed
 cd docker-bootstrap-sinatra-master
-
-./bootstrap
+docker-compose up
 ```
 
 ## Windows
 clone the repository and run the following using powershell from inside the folder:
 ```
-docker-compose run --no-deps web bundle install
 docker-compose up
 ```

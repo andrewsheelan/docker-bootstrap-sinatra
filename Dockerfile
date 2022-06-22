@@ -9,4 +9,4 @@ RUN bundle install
 
 EXPOSE 3000
 
-CMD ["puma", "config.ru", "-C", "puma.rb"]
+CMD ["puma", "config.ru", "-C", "config/puma.rb", "-p", "3000"]

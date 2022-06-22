@@ -43,3 +43,6 @@ pidfile ENV.fetch('PIDFILE') { 'tmp/pids/server.pid' }
 
 # Allow puma to be restarted by `bin/PUMA restart` command.
 plugin :tmp_restart
+
+# Load metrics plugin
+plugin 'metrics'
