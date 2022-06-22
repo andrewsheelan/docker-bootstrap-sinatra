@@ -1,0 +1,43 @@
+version: "3.9"
+services:
+  db:
+    image: public.ecr.aws/docker/library/postgres:latest
+    volumes:
+      - 'db:/var/lib/postgresql/data'
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+
+  sinatra:
+    build: .
+    volumes:
+      - .:/app
+      - 'bundle:/bundle'
+    command: bin/docker.dev
+    environment:
+      DATABASE_URL: postgres://dev:password@db
+      BUNDLE_PATH:  /bundle
+      RACK_ENV:  development
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true
+    ports:
+      - "3000:3000"
+
+volumes:
+  db:
+  bundle:
